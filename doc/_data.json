@@ -34,7 +34,7 @@
     "_common":
     {
       "name":"Interacting with WebSphere MQ using MQ node properties",
-      "shortDescription":"Configuring MQ nodes to send and receive messages to and from queues in MQ while routing the message using a JavaCompute node.",
+      "shortDescription":"Configuring MQ nodes to recieve and send messages from and to queues in MQ while routing the message using a JavaCompute node.",
       "durationText":"This tutorial takes approximately",
       "durationTime":"10 minutes",
 	  "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
@@ -85,7 +85,7 @@
             "section":"Websphere MQ is a program to program service used for sending messages across different platforms. Generally you will use an Input queue and an Output queue to send and receive messages."
             },
             {
-            "section":"The JavaCompute node has been programmed to search through an XML message tree to assess the value of the <ConnType> property and route the message to the specified location."
+            "section":"The JavaCompute node has been programmed to search through an XML message tree to assess the value of the ConnType property and route the message to the specified location."
             }
           ]
         },
@@ -129,10 +129,10 @@
             "sections":
 					[
                         {
-							"section": "Click on the Import link to create and open the MQNodePropertiesTutorial project in your workspace."
+							"section": "Click on the Import link to create and open the <span class='application'>MQNodePropertiesTutorial</span> project in your workspace."
 						},
 						{
-							"section": "The MQNodePropertiesMain.msgflow message flow should open. If not then it can be located in the Application Development area on the left. "
+							"section": "The <span class='msgflow'>MQNodePropertiesMain.msgflow</span> message flow should open. If not then it can be located in the Application Development area on the left. "
 						},
 						{
 							"section": "Click on the Prepare tab to see how to set up this flow to connect it to WebSphere MQ."
@@ -180,20 +180,20 @@
                             "section": "The following assumes that you have installed and are running Websphere MQ. If not then use the link below for assistance. Within the application you downloaded there is a file called MQCommands.mqsc, open Windows Command Prompt (cmd) in administrator mode (as this will give you the necessary access) and run the script there. This should set up MQ with everything you need for this tutorial."                       
 						},						
                         {
-                            "section": "Now return to IIB and open the MQNodePropertiesMain message flow.",
+                            "section": "Now return to IIB and open the <span class='msgflow'>MQNodePropertiesMain</span> message flow.",
                             "steps":
                             {
                                 "type": "ordered",
 			                    "details": 
 			                    [
 						            {
-							            "details": "To configure the MQRemoteInput node to your Input queue click on it and go to the properties tab. Under the Basic tab enter the name of the queue you created 'Remote_Input'. Go to the MQ Connection tab and from the drop down menu select 'MQ Client Connection Properties'. In Destination queue manager name enter 'Tutorial_QM_Remote' as this is where the Remote_Input queue is found. Under Host name enter your IP address, the listener port number is 1001 and the channel name is 'IIB.CLNT.CONN' (These were all set up from the mqsc script). Finally, on the Input Message Parsing tab set the message domain to 'XMLNSC' - this tells the node that you will be sending it an XML message."
+							            "details": "To configure the MQRemoteInput node to your Input queue click on it and go to the properties tab. Under the Basic tab enter the <span class='property'>Queue name</span> of the queue created by the command script - <span class='option'>Remote_Input</span>. Go to the MQ Connection tab and from the drop down menu select <span class='option'>MQ Client Connection Properties</span>. In <span class='property'>Destination queue manager name</span> enter <span class='option'>Tutorial_QM_Remote</span> as this is where the Remote_Input queue is found. Under <span class='property'>Host name</span> enter <span class='option'>localhost</span>, the <span class='property'>listener port number</span> is <span class='option'>1001</span> and the <span class='property'>channel name</span> is <span class='option'>IIB.CLNT.CONN</span> (These were all set up from the mqsc script). Finally, on the Input Message Parsing tab set the <span class='property'>message domain</span> to <span class='option'>XMLNSC</span> - this tells the node that you will be sending it an XML message."
 						            },
 									{
-							            "details": "For the MQRemoteOutput node on the Basic tab set the queue name to Remote_Output and set the MQ Connection settings to the same as the input node."
+							            "details": "For the MQRemoteOutput node on the Basic tab set the <span class='property'>queue name</span> to <span class='option'>Remote_Output</span> and set the MQ Connection settings to the same as the input node."
 						            },
 									{
-							            "details": "For the MQFailureOutput and MQLocalOutput nodes on the basic tab enter the queues Failure_Output and Local_Output respectively and on the MQ Connection tab set the connection to a Local Queue Manager and enter the name Tutorial_QM_Local."
+							            "details": "For the MQFailureOutput and MQLocalOutput nodes on the basic tab enter the queues <span class='option'>Failure_Output</span> and <span class='option'>Local_Output</span> respectively and on the MQ Connection tab set the <span class='property'>connection</span> to a <span class='option'>Local Queue Manager</span> and enter the name <span class='option'>Tutorial_QM_Local</span>."
 						            }
 					            ]
 						    }
@@ -247,10 +247,10 @@
                                 "details": 
 								[
                                     {
-                                        "details": "Click the Flow Exerciser icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow."
+                                        "details": "Click the <span class='icon'>Flow Exerciser</span> icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' /> to start recording the message path through the flow."
                                     },
                                     {
-										"details":"Click the Send Message icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+										"details":"Click the <span class='icon'>Send Message</span> icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
 									},
 									{ 
 										"details":"Choose either the LocalMessage or RemoteMessage and click Send. Your request message is sent to the MQRemoteInput node."
@@ -262,10 +262,10 @@
 							"section":"After the message has been processed, the message path is automatically highlighted on the message flow."
 						},
 						{
-							"section":"Click on any connection to see the data that passed through that connection. You can see that the request (input) message data has a field named ConnType. The response (output) message has been routed according to this."
+							"section":"Click on any connection to see the data that passed through that connection. You can see that the request (input) message data has a field named <span class='property'>ConnType</span>. The response (output) message has been routed according to this."
 						},
 						{
-							"section":"To stop recording the message path through the flow, click the Return flow to edit mode icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/stopFlowExerciser.png' alt='Return flow to edit mode' />."
+							"section":"To stop recording the message path through the flow, click the <span class='icon'>Return flow to edit mode</span> icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/stopFlowExerciser.png' alt='Return flow to edit mode' />."
 						},
 						{
 							"section":"If you go to WebSphere MQ now you will see that the Remote_Input queue has 1 Open Input Count which means that it is receiving information from 1 source. You can also see that the queue you sent the message to will have a current queue depth of 1, this means that the message sent successfully."
