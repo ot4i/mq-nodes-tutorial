@@ -1,0 +1,8 @@
+{    
+    "main" : 
+	{	
+      "project" : "MQNodePropertiesTutorial",
+      "artefact": "MQNodePropertiesMain.msgflow",
+      "editor"  : "flow"
+    }
+  }
