@@ -34,7 +34,7 @@
     "_common":
     {
       "name":"Interacting with WebSphere MQ using MQ node properties",
-      "shortDescription":"Configuring MQ nodes to recieve and send messages from and to queues in MQ while routing the message using a JavaCompute node.",
+      "shortDescription":"Configuring MQ nodes to send and receive messages to and from queues in MQ while routing the message using a JavaCompute node.",
       "durationText":"This tutorial takes approximately",
       "durationTime":"10 minutes",
 	  "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
