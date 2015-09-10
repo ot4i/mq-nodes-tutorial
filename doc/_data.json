@@ -177,7 +177,7 @@
                             "section": "In this section you will be configuring the MQInput and MQOutput nodes to connect to the queues in Websphere MQ."
                         },
                         {
-                            "section": "The following assumes that you have installed and are running Websphere MQ. If not then use the link below for assistance. Within the application you downloaded there is a file called MQCommands.mqsc, open this and replace all <ENTERUSERNAME> with your pc logon name (i.e. Administrator). Open Windows Command Prompt (cmd) in administrator mode (as this will give you the necessary access) and run the script there. This should set up MQ with everything you need for this tutorial."                       
+                            "section": "The following assumes that you have installed and are running Websphere MQ. If not then use the link below for assistance. Within the application you downloaded there is a file called MQCommands.mqsc, open this and replace where it says <span class='property'>ENTERUSERNAME</span> on line 13 and 14 with your pc logon name (i.e. Administrator). Open Windows Command Prompt (cmd) in administrator mode (as this will give you the necessary access) and run the script there. This should set up MQ with everything you need for this tutorial."                       
 						},						
                         {
                             "section": "Now return to IIB and open the <span class='msgflow'>MQNodePropertiesMain</span> message flow.",
