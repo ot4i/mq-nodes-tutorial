@@ -1,14 +1,14 @@
 crtmqm Tutorial_QM_Local			
 strmqm Tutorial_QM_Local			
 runmqsc Tutorial_QM_Local			
-	DEFINE QLOCAL (Local_Output)		
-	DEFINE QLOCAL (Failure_Output)	
+DEFINE QLOCAL (Local_Output)		
+DEFINE QLOCAL (Failure_Output)	
 END
 crtmqm Tutorial_QM_Remote			
 strmqm Tutorial_QM_Remote		
 runmqsc Tutorial_QM_Remote			
-	DEFINE QLOCAL (Remote_Input)		
-	DEFINE QLOCAL (Remote_Output)		
+DEFINE QLOCAL (Remote_Input)		
+DEFINE QLOCAL (Remote_Output)		
 DEFINE CHANNEL(IIB.CLNT.CONN) CHLTYPE(SVRCONN) TRPTYPE(TCP) DESCR('Server-connection to Tutorial_QM_Remote')
 SET CHLAUTH(IIB.CLNT.CONN) TYPE(ADDRESSMAP) ADDRESS('*') MCAUSER('*')
 SET CHLAUTH(SYSTEM.DEF.SVRCONN) TYPE(ADDRESSMAP) ADDRESS('*') MCAUSER('*')
