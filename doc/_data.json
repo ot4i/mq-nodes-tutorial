@@ -187,13 +187,13 @@
 			                    "details": 
 			                    [
 						            {
-							            "details": "To configure the MQRemoteInput node to your Input queue click on it and go to the properties tab. Under the Basic tab enter the <span class='property'>Queue name</span> of the queue created by the command script - <span class='option'>Remote_Input</span>. Go to the MQ Connection tab and from the drop down menu select <span class='option'>MQ Client Connection Properties</span>. In <span class='property'>Destination queue manager name</span> enter <span class='option'>Tutorial_QM_Remote</span> as this is where the Remote_Input queue is found. Under <span class='property'>Host name</span> enter <span class='option'>localhost</span>, the <span class='property'>listener port number</span> is <span class='option'>1001</span> and the <span class='property'>channel name</span> is <span class='option'>IIB.CLNT.CONN</span> (These were all set up from the mqsc script). Finally, on the Input Message Parsing tab set the <span class='property'>message domain</span> to <span class='option'>XMLNSC</span> - this tells the node that you will be sending it an XML message."
+							            "details": "To configure the MQRemoteInput node to your Input queue click on it and go to the properties tab. Under the Basic tab enter the <span class='property'>Queue name</span> of the queue created by the command script - <span class='option'>REMOTE_INPUT</span>. Go to the MQ Connection tab and from the drop down menu select <span class='option'>MQ Client Connection Properties</span>. In <span class='property'>Destination queue manager name</span> enter <span class='option'>Tutorial_QM_Remote</span> as this is where the REMOTE_INPUT queue is found. Under <span class='property'>Host name</span> enter <span class='option'>localhost</span>, the <span class='property'>listener port number</span> is <span class='option'>1001</span> and the <span class='property'>channel name</span> is <span class='option'>IIB.CLNT.CONN</span> (These were all set up from the mqsc script). Finally, on the Input Message Parsing tab set the <span class='property'>message domain</span> to <span class='option'>XMLNSC</span> - this tells the node that you will be sending it an XML message."
 						            },
 									{
-							            "details": "For the MQRemoteOutput node on the Basic tab set the <span class='property'>queue name</span> to <span class='option'>Remote_Output</span> and set the MQ Connection settings to the same as the input node."
+							            "details": "For the MQRemoteOutput node on the Basic tab set the <span class='property'>queue name</span> to <span class='option'>REMOTE_OUTPUT</span> and set the MQ Connection settings to the same as the input node."
 						            },
 									{
-							            "details": "For the MQFailureOutput and MQLocalOutput nodes on the basic tab enter the queues <span class='option'>Failure_Output</span> and <span class='option'>Local_Output</span> respectively and on the MQ Connection tab set the <span class='property'>connection</span> to a <span class='option'>Local Queue Manager</span> and enter the name <span class='option'>Tutorial_QM_Local</span>."
+							            "details": "For the MQFailureOutput and MQLocalOutput nodes on the basic tab enter the queues <span class='option'>FAILURE_OUTPUT</span> and <span class='option'>LOCAL_OUTPUT</span> respectively and on the MQ Connection tab set the <span class='property'>connection</span> to a <span class='option'>Local Queue Manager</span> and enter the name <span class='option'>Tutorial_QM_Local</span>."
 						            }
 					            ]
 						    }
@@ -268,7 +268,7 @@
 							"section":"To stop recording the message path through the flow, click the <span class='icon'>Return flow to edit mode</span> icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/stopFlowExerciser.png' alt='Return flow to edit mode' />."
 						},
 						{
-							"section":"If you go to WebSphere MQ now you will see that the Remote_Input queue has 1 Open Input Count which means that it is receiving information from 1 source. You can also see that the queue you sent the message to will have a current queue depth of 1, this means that the message sent successfully."
+							"section":"If you go to WebSphere MQ now you will see that the REMOTE_INPUT queue has 1 Open Input Count which means that it is receiving information from 1 source. You can also see that the queue you sent the message to will have a current queue depth of 1, this means that the message sent successfully."
 						}
 					]
 				},
