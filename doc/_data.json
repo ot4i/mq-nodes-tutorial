@@ -197,6 +197,9 @@
 						            }
 					            ]
 						    }
+                        },
+                        {
+                            "section": "Now is a good time to take a look at the JavaCompute node if you wish to see how it navigates through an XML tree and how it routes the message to the correct terminal."
                         }
                     ]
                 },
@@ -269,6 +272,9 @@
 						},
 						{
 							"section":"If you go to WebSphere MQ now you will see that the REMOTE_INPUT queue has 1 Open Input Count which means that it is receiving information from 1 source. You can also see that the queue you sent the message to will have a current queue depth of 1, this means that the message sent successfully."
+						},
+						{
+							"section":"This is the end of the tutorial. The follow-on tutorial from here is 'Interacting with Queue Managers using Policies' if you'd like to learn another way of routing messages."
 						}
 					]
 				},
