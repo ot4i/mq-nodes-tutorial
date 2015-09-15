@@ -6,19 +6,19 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/MQNodePropertiesTutorial/icons/full/obj16/MQNodePropertiesMain.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/MQNodePropertiesTutorial/icons/full/obj30/MQNodePropertiesMain.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="548,96">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="571,13">
         <translation xmi:type="utility:ConstantString" string="MQFailureOutput"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="552,171">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="582,171">
         <translation xmi:type="utility:ConstantString" string="MQLocalOutput"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="544,243">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="579,327" connection="CLIENT">
         <translation xmi:type="utility:ConstantString" string="MQRemoteOutput"/>
       </nodes>
       <nodes xmi:type="ComIbmJavaCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="293,171" javaClass="MQNodePropertiesMain_JavaCompute">
         <translation xmi:type="utility:ConstantString" string="Java Compute"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="78,171">
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="78,171" connection="CLIENT" messageDomainProperty="XMLNSC">
         <translation xmi:type="utility:ConstantString" string="MQRemoteInput"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.in"/>
@@ -27,6 +27,16 @@
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
     </composition>
     <propertyOrganizer/>
-    <stickyBoard/>
+    <stickyBoard>
+      <stickyNote location="25,21" association="FCMComposite_1_6">
+        <body xmi:type="utility:ConstantString" string="MQInput Node&#xA;This node receieves a message &#xA;from a queue in MQ or the flow &#xA;exerciser and passes it on&#xA;to the next node."/>
+      </stickyNote>
+      <stickyNote location="109,293" association="FCMComposite_1_5">
+        <body xmi:type="utility:ConstantString" string="JavaCompute Node&#xA;This type of node has many functions.&#xA;You can use Java to alter and create&#xA;messages to send on to the next node. &#xA;In this case the node inspects the message &#xA;and routes it to one of the next nodes &#xA;depending on the message's content.&#xA;"/>
+      </stickyNote>
+      <stickyNote location="766,107" association="FCMComposite_1_2 FCMComposite_1_4 FCMComposite_1_3">
+        <body xmi:type="utility:ConstantString" string="MQOutput Node&#xA;These nodes receive the message from&#xA;the JavaCompute node and pass it on&#xA;to the queue they are connected to. &#xA;In this tutorial you will connect the nodes to&#xA;queues in MQ. "/>
+      </stickyNote>
+    </stickyBoard>
   </eClassifiers>
 </ecore:EPackage>
