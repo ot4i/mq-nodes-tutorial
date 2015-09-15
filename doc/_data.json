@@ -33,7 +33,7 @@
   { 
     "_common":
     {
-      "name":"Interacting with WebSphere MQ using MQ Node Properties and Routing using a JavaCompute Node",
+      "name":"Interacting with WebSphere MQ using MQ Node Properties",
       "shortDescription":"Configuring MQ nodes to receive and send messages from and to queues in MQ while routing the message using a JavaCompute node.",
       "durationText":"This tutorial takes approximately",
       "durationTime":"10 minutes",
