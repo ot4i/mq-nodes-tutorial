@@ -183,7 +183,7 @@
                             "section": "The following assumes that you have installed and are running Websphere MQ. If not then use the link below for assistance. Within the MQNodePropertiesTutorial application open the folder 'Other Resources', right-click Setup.bat (Windows) or Setup.sh (Linux) and open it in Text Editor."                       
 						},		
 {
-                            "section": "Replace &lt;FILEPATH1&gt; with the location of the QUEUEMANAGERLOCAL.mqsc file and replace &lt;FILEPATH2&gt; with the location of the QUEUEMANAGERREMOTE.mqsc file (These can be found by right-clicking them and selecting Properties). Right-click the Setup file, select 'Run as Administrator' and enter your password to run it. This will set up MQ with everything you need for this tutorial."                       
+                            "section": "Replace &lt;FILEPATH1&gt; with the location of the QUEUEMANAGERLOCAL.mqsc file and replace &lt;FILEPATH2&gt; with the location of the QUEUEMANAGERREMOTE.mqsc file (These can be found by right-clicking them and selecting Properties). Now save your work. Locate the Setup file in your system and right-click it, select 'Run as Administrator' and enter your password to run it. This will set up MQ with everything you need for this tutorial."                       
 						},						
                         {
                             "section": "Now return to IIB and open the <span class='msgflow'>MQNodePropertiesMain</span> message flow."
