@@ -1,0 +1,429 @@
+{
+  "version":"0.6",
+  "pageContent": 
+  {
+    "comments":"JSON object that contains data for page labels, buttons, etc.",
+      "navItems":
+      {
+        "_common":
+        {
+			"buttonBackToGallery": 
+			{
+				"name": "Back To Gallery",
+				"method": "backToGallery()",
+				"idName": "backToGallery"	
+			},
+			"buttonStartTutorial": 
+			{
+				"name": "Start Tutorial",
+				"method": "startTutorialFromDetailsScreen()",
+				"idName": "startTutorial"
+			},
+			"buttonViewDetails":
+			{
+
+				"name": "View Details",
+				"method": "viewDetails()",
+				"idName": "stepsViewDetails"
+			}
+		}
+      }  
+  },
+  "tutorial": 
+  { 
+    "_common":
+    {
+      "name":"Interacting with WebSphere MQ using MQ Node Properties",
+      "shortDescription":"Configuring MQ nodes to receive and send messages from and to queues in MQ while routing the message using a JavaCompute node.",
+      "durationText":"This tutorial takes approximately",
+      "durationTime":"10 minutes",
+	  "_resourceToOpenComment": "The ID of the first resource to open when the user imports the tutorial. Resource IDs are defined in the repo_metadata.json Tutorials listing on ot4i.",
+	  "resourceToOpen":"MQNodePropertiesMain",
+            "helpLink": 
+			{
+                "text": "Creating the default IBM integration queues in WebSphere MQ.",
+                "link": "com.ibm.etools.mft.doc/ah09090_.htm?lang=en"
+            }
+    },
+    "pageDetails":
+    {
+      "topicsName":"Tutorial Topics",
+	  "_topicListComment": "A short list of product concepts or tasks demonstrated by this tutorial",
+      "topicList":
+      [
+        {
+          "title":"MQ Input/Output Nodes"
+        },
+        {
+          "title":"JavaCompute Node"
+        }
+      ],
+      "outcomesName":"Learning outcomes",
+	  "_outcomesComment": "A description of what the user will have learned or accomplished by running this tutorial.",
+      "outcomeList":
+      [
+        {
+          "title":"Develop a message flow which receives messages from a MQ queue."
+        },
+        {
+          "title":"Learn how to route the message to a local or remote queue using JavaCompute."
+        },
+        {
+          "title":"Understand how to connect MQInput and MQOutput nodes to specific queues and queue managers."
+        }
+      ],
+      "summary":
+        {
+          "overviewName":"OVERVIEW",
+		  "_overviewComment": "A description of what happens in this tutorial, and an optional short explanation of the IIB concepts used in this tutorial if necessary for context. What background knowledge must the user have for this to make sense?",
+          "sections":
+          [
+            {
+            "section":"This tutorial demonstrates how to create a connection to pass messages between IBM Integration Bus and WebSphere MQ. You will also see how to use a simple JavaCompute node to route the message."
+            },
+            {
+            "section":"Websphere MQ is a program to program service used for sending messages across different platforms. Generally you will use an Input queue and an Output queue to send and receive messages."
+            },
+            {
+            "section":"The JavaCompute node has been programmed to search through an XML message tree to assess the value of the ConnType property and route a new message to the specified location"
+            }
+          ]
+        },
+		"helpLinks": 
+		{
+		"title": "Find out more",
+		"details" :
+		  [
+			{
+			"title":"Knowledge Center link to ",
+			"description":"the MQ Input Node",
+			"link":"com.ibm.etools.mft.doc/ac04560_.htm?lang=en"
+			},
+			{
+			"title":"Knowledge Center link to ",
+			"description":"the MQ Output Node",
+			"link":"com.ibm.etools.mft.doc/ac04570_.htm?lang=en"
+			},
+			{
+			"title":"Knowledge Center link to ",
+			"description":"the JavaCompute Node",
+			"link":"com.ibm.etools.mft.doc/ac20805_.htm?lang=en"
+			},
+			{
+			"title":"Knowledge Center link to ",
+			"description":"creating a client connection to MQ",
+			"link":"com.ibm.etools.mft.doc/bc28611_.htm?lang=en"
+			}
+		  ]
+		}
+      },
+      "pageSteps":
+      {
+        "create":
+        {
+          "overview":
+          {
+            "name":"Create",
+            "heading":"Import the Message Flow",
+			"_createComment": "A description of what will happen when the user clicks Import.",
+            "sections":
+					[
+                        {
+							"section": "Click on the Import link to create and open the <span class='application'>MQNodePropertiesTutorial</span> project in your workspace."
+						},
+						{
+							"section": "The <span class='msgflow'>MQNodePropertiesMain.msgflow</span> message flow should open. If not then it can be located in the Application Development area on the left. "
+						},
+						{
+							"section": "Here you can see five nodes connected in a flow. The notes attached to them describe what they are and what they do."
+						},
+						{
+							"section": "Click on the Prepare tab to see how to set up this flow to connect it to WebSphere MQ."
+						}
+                    ]
+                },
+                "helpLinks": 
+				{
+                    "title": "Find out more",
+                    "details": 
+					[
+                       {
+						"title": "Knowledge Center",
+						"description": "Developing integration solutions from scratch.",
+						"link": "com.ibm.etools.mft.doc/bi12002_.htm?lang=en",
+						"type": "web"
+						}	
+                    ]
+                },
+                "actions": 
+				{
+                    "title": "Create Actions",
+                    "details": 
+					[
+                        {
+                            "name": "Import",
+                            "method": "importArtifacts()"
+                        }
+                    ]
+                }
+            },
+            "prepare": 
+			{
+                "overview": 
+				{
+                    "name": "Prepare",
+                    "heading": "Connecting the flow to your queues and configuring your nodes.",
+                    "_prepareComment": "A description of what just happened when the user clicked Import, and what will happen when the user clicks Deploy.",
+                    "sections": 
+					[
+                        {
+                            "section": "In this section you will be configuring the MQInput and MQOutput nodes to connect to the queues in Websphere MQ."
+                        },
+                        {
+                            "section": "The following assumes that you have installed and are running Websphere MQ. If not then use the link below for assistance. Within the MQNodePropertiesTutorial application open the folder 'Other Resources', right-click Setup.bat (Windows) or Setup.sh (Linux) and open it in Text Editor."                       
+						},		
+{
+                            "section": "Replace &lt;FILEPATH1&gt; with the location of the QUEUEMANAGERLOCAL.mqsc file and replace &lt;FILEPATH2&gt; with the location of the QUEUEMANAGERREMOTE.mqsc file (These can be found by right-clicking them and selecting Properties). Now save your work. Locate the Setup file in your system and right-click it, select 'Run as Administrator' and enter your password to run it. This will set up MQ with everything you need for this tutorial."                       
+						},						
+                        {
+                            "section": "Now return to IIB and open the <span class='msgflow'>MQNodePropertiesMain</span> message flow."
+						},
+						{
+                            "section": "Complete the following steps to set up the MQRemoteInput node.",
+                            "steps":
+                            {
+                                "type": "ordered",
+			                    "details": 
+			                    [
+						            {
+							            "details": "Click on the MQRemoteInput node, go to the properties tab and click on the 'Basic' tab."
+						            },
+									{
+							            "details": "<span class='application'>Queue name</span>: <span class='option'>REMOTE_INPUT</span>."
+						            },
+									{
+							            "details": "Go to the 'MQ Connection' tab."
+						            },
+									{
+							            "details": "<span class='application'>Connection</span>: <span class='option'>MQ Client Connection Properties</span>."
+						            },
+									{
+							            "details": "<span class='application'>Destination queue manager name</span>: <span class='option'>TUTORIAL_QM_REMOTE</span>"
+						            },
+									{
+							            "details": "<span class='application'>Queue manager host name</span>: enter your machine's IP address (i.e. <span class='option'>192.168.0.1'</span>)."
+						            },
+									{
+							            "details": "<span class='application'>Listener port number</span>: <span class='option'>3601</span>"
+						            },
+									{
+							            "details": "<span class='application'>Channel name</span>: <span class='option'>IIB.CLNT.CONN</span>."
+						            }
+								]
+							}
+						},						
+						{
+                            "section": "Complete the following steps to set up the MQRemoteOutput node.",
+                            "steps":
+                            {
+                                "type": "ordered",
+			                    "details": 
+			                    [
+						            {
+							            "details": "Click on the MQRemoteOutput node, go to the properties tab and click on the 'Basic' tab."
+						            },
+									{
+							            "details": "<span class='application'>Queue name</span>: <span class='option'>REMOTE_OUTPUT</span>."
+						            },
+									{
+							            "details": "Go to the 'MQ Connection' tab."
+						            },
+									{
+							            "details": "<span class='application'>Connection</span>: <span class='option'>MQ Client Connection Properties</span>."
+						            },
+									{
+							            "details": "<span class='application'>Destination queue manager name</span>: <span class='option'>TUTORIAL_QM_REMOTE</span>"
+						            },
+									{
+							            "details": "<span class='application'>Queue manager host name</span>: enter your machine's IP address (i.e. <span class='option'>'192.168.0.1'</span>)."
+						            },
+									{
+							            "details": "<span class='application'>Listener port number</span>: <span class='option'>3601</span>"
+						            },
+									{
+							            "details": "<span class='application'>Channel name</span>: <span class='option'>IIB.CLNT.CONN</span>."
+						            },
+									{
+							            "details": "Note that these are the same MQ Connection properties as the MQRemoteInput node because these two nodes connect to the same Queue Manager."
+						            }
+								]
+							}
+						},						
+						{
+                            "section": "Complete the following steps to set up the MQLocalOutput node.",
+                            "steps":
+                            {
+                                "type": "ordered",
+			                    "details": 
+			                    [
+						            {
+							            "details": "Click on the MQLocalOutput node, go to the properties tab and click on the 'Basic' tab."
+						            },
+									{
+							            "details": "<span class='application'>Queue name</span>: <span class='option'>LOCAL_OUTPUT</span>."
+						            },
+									{
+							            "details": "Go to the 'MQ Connection' tab."
+						            },
+									{
+							            "details": "<span class='application'>Connection</span>: <span class='option'>Local queue manager</span>."
+						            },
+									{
+							            "details": "<span class='application'>Destination queue manager name</span>: <span class='option'>TUTORIAL_QM_LOCAL</span>."
+						            }
+								]
+							}
+						},
+						{
+                            "section": "Complete the following steps to set up the MQFailureOutput node.",
+                            "steps":
+                            {
+                                "type": "ordered",
+			                    "details": 
+			                    [
+						            {
+							            "details": "Click on the MQFailureOutput node, go to the properties tab and click on the 'Basic' tab."
+						            },
+									{
+							            "details": "<span class='application'>Queue name</span>: <span class='option'>FAILURE_OUTPUT</span>."
+						            },
+									{
+							            "details": "Go to the 'MQ Connection' tab."
+						            },
+									{
+							            "details": "<span class='application'>Connection</span>: <span class='option'>Local queue manager</span>."
+						            },
+									{
+							            "details": "<span class='application'>Destination queue manager name</span>: <span class='option'>TUTORIAL_QM_LOCAL</span>."
+						            }
+								]
+							}							
+						}
+                    ]
+                },
+                "helpLinks": 
+				{
+                    "title": "Find out more",
+                    "details": 
+					[                       
+                        {
+				            "title":"Knowledge Center link to ",
+				            "description":"Setting up WebSphere MQ.",
+				            "link":"com.ibm.etools.mft.doc/ah09088_.htm?lang=en"
+                        },
+						{
+				            "title":"Knowledge Center link to ",
+				            "description":"WebSphere MQ Commands",
+				            "link":"com.ibm.mq.ref.adm.doc/q083010_.htm"
+                        }
+                    ]
+                },
+                "actions-remove": 
+				{
+				    "comment":" as the user needs to configure some of the properties on the flow in the create step, we cannot have a pre-built bar file, therefore cannot use the deploy action",
+                    "title": "Prepare Actions",
+                    "details": 
+					[
+                        {
+                            "name": "Deploy",
+                            "method": "deployArtifacts()"
+                        }
+                    ]
+                }
+            },
+            "run": 
+			{
+                "overview": 
+				{
+                    "name": "Run",
+                    "heading": "Follow these steps to complete the tutorial",
+                    "_runComment": "The full steps for the user to run through the tutorial. Use 'sections' to render paragraphs, 'steps' with a type of 'ordered' or 'unordered' to render HTML lists, and 'substeps' to render nested lists.",
+                    "sections": 
+					[
+                        {
+                            "section": "In this final section you will send a simple XML message through the flow you have developed.",
+                            "steps": 
+							{
+                                "type": "ordered",
+                                "details": 
+								[
+                                    {
+                                        "details": "Click the <span class='icon'>Flow Exerciser</span> icon <img src='http://ot4i.github.io/ot4i.tutorials//dist/images/icons/iib/startFlowExerciser.png' alt='' />, select the integration node you would like to use and click OK to start recording the message path through the flow."
+                                    },
+                                    {
+										"details":"Click the <span class='icon'>Send Message</span> icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/sendMessage.png' alt='' /> to select a message to send to the flow."
+									},
+									{ 
+										"details":"Send the LocalMessage and click Send. Your request message is sent to the MQRemoteInput node."
+									},
+									{ 
+										"details":"The request (input) message data has a field named <span class='property'>ConnType</span>. This has a value 'LOCAL'. The Java Compute node inspects this part of the message and passes the message on to the appropriate node. The response (output) message has therefore been routed to the MQLocalOutput node."
+									}
+								]
+							}
+						},
+						{
+							"section":"After the message has been processed, you can see the stages it went through to reach the final output queue (LOCAL_OUTPUT). By clicking on the output queue you can see the message sent. The message shows that it was routed locally, the date and the time. Close this box and the message path is automatically highlighted on the message flow."
+						},
+						{
+							"section":"Click on any connection to see the data that passed through that connection."
+						},
+						{
+							"section":"Repeat these steps for the RemoteMessage and see how the results differ. The <span class='property'>ConnType</span> value in this message is 'REMOTE', thus the message will be routed to the MQRemoteOutput node."
+						},
+						{
+							"section":"To stop recording the message path through the flow, click the <span class='icon'>Return flow to edit mode</span> icon <img src='http://ot4i.github.io/iib-tutorials/images/icons/iib/stopFlowExerciser.png' alt='Return flow to edit mode' />."
+						},
+						{
+							"section":"You have completed this tutorial. If you have not already done so - work through the 'Interacting with Queue Managers using Policies' tutorial as this explains another method of connecting nodes to MQ. To find this tutorial go to the top of this page and select 'Back to Gallery'."
+						}
+					]
+				},
+					"helpLinks": 
+				{
+					"title": "Find out more",
+					"details" :
+					[
+						{
+						"title":"Knowledge Center link to ",
+						"description":"Developing integration solutions by using applications.",
+						"link":"com.ibm.etools.mft.doc/bi12002_.htm"
+						},
+						{
+						"title":"Knowledge Center link to ",
+						"description":"Testing your message flow by using the Flow exerciser.",
+						"link":"com.ibm.etools.mft.doc/rt26110_.htm"
+						},
+						{
+						"title":"Knowledge Center link to ",
+						"description":"The JavaCompute node.",
+						"link":"/com.ibm.etools.mft.doc/ac20805_.htm?lang=en"
+						}
+					]
+				},
+			"exits": 
+			{
+				"title": "Run Exits",
+				"details": 
+				[
+					{
+						"name": "Clean Up",
+						"description": "Clean up and remove any changes in your workspace made by the tutorial.",
+						"method": "cleanUp()"
+					}
+				]
+			}
+        } 
+      }
+    }
+  }
